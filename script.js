@@ -1,6 +1,7 @@
 let sayac=0;
 let listedekiler=[];
-
+let oncekiSayi=0;
+let yeniSayi;
 document.getElementById("btnEkle").addEventListener("click", ()=>{
   let aday=document.getElementById("txtAday").value;
   let liste=document.getElementById("listeAdaylar");
@@ -13,12 +14,19 @@ document.getElementById("btnEkle").addEventListener("click", ()=>{
 })
 
 function cekilisiYap(){
-  let sayi=Math.floor(Math.random() * sayac);
+  yeniSayi=Math.floor(Math.random() * sayac);
 
+  if(yeniSayi == oncekiSayi)
+  {
+    if (yeniSayi == 0)
+    {yeniSayi++;} 
+    else 
+    {yeniSayi--;}
+  }
 
-
-  let sonuc=document.getElementById("sonuc").innerHTML=listedekiler[sayi].innerHTML;
-  
+  console.log(yeniSayi);
+  let sonuc=document.getElementById("sonuc").innerHTML=listedekiler[yeniSayi].innerHTML;
+  oncekiSayi=yeniSayi;
 }
 
 
